@@ -92,9 +92,7 @@ ln -s ~/.local/share/ai-extract/ai-extract.py ~/.local/bin/ai-extract.py
 # (add to ~/.zshrc or ~/.bashrc if needed)
 export PATH="$HOME/.local/bin:$PATH"
 
-# Install and start Ollama
-brew install ollama
-ollama serve &
+# Install Ollama (https://ollama.com) and pull a model
 ollama pull qwen3.5:9b
 ```
 
@@ -124,19 +122,19 @@ The model must be able to output valid JSON and follow German-language extractio
 
 ## macOS Quick Action
 
-You can wrap this script as a Finder Quick Action (right-click menu) using Automator:
+A ready-to-use Finder Quick Action is included. Install it by copying the workflow to your Services folder:
 
-1. Open **Automator** → New → **Quick Action**
-2. Set "Workflow receives" to **PDF files** in **Finder**
-3. Add a **Run Shell Script** action:
-   ```bash
-   for f in "$@"; do
-       ~/.local/bin/ai-extract.py "$f"
-   done
-   ```
-4. Save as "Extract Payment Data"
+```bash
+cp -R "AI Extract Payment.workflow" ~/Library/Services/
+```
 
-Now you can right-click any PDF in Finder and extract payment data with one click.
+After that, right-click any PDF in Finder and select **AI Extract Payment** from the Quick Actions menu.
+
+To uninstall:
+
+```bash
+rm -rf ~/Library/Services/AI\ Extract\ Payment.workflow
+```
 
 ## Output Format
 
