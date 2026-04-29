@@ -128,6 +128,8 @@ A ready-to-use Finder Quick Action is included. Install it by copying the workfl
 cp -R "AI Extract Payment.workflow" ~/Library/Services/
 ```
 
+> **Hinweis:** Falls die Quick Action nach der Installation nicht im Finder-Kontextmenü erscheint, Finder neu starten: `killall Finder`
+
 After that, right-click any PDF in Finder and select **AI Extract Payment** from the Quick Actions menu.
 
 To uninstall:
